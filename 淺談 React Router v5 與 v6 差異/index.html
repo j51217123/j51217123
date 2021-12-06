@@ -36,14 +36,14 @@
 <meta property="og:site_name" content="Ovis Blog">
 <meta property="og:description" content="最近寫 Side Project 時，想利用 React Router 進行路由切換，但殊不知 11 月初 React Router 推出了 v6 版本，只好在寫專案前先乖乖讀官方文件，順便透過這篇文章簡單記錄一下差異性 🤣">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://j51217123.github.io/j51217123/images/router.jpg">
+<meta property="og:image" content="https://github.com/j51217123/j51217123/blob/gh-pages/images/postimg/react-router/router.JPG?raw=true">
 <meta property="article:published_time" content="2021-12-06T11:49:33.000Z">
-<meta property="article:modified_time" content="2021-12-06T12:35:55.816Z">
+<meta property="article:modified_time" content="2021-12-06T13:53:56.064Z">
 <meta property="article:author" content="Ovis Lai">
 <meta property="article:tag" content="React">
 <meta property="article:tag" content="React-Router">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://j51217123.github.io/j51217123/images/router.jpg">
+<meta name="twitter:image" content="https://github.com/j51217123/j51217123/blob/gh-pages/images/postimg/react-router/router.JPG?raw=true">
 
 <link rel="canonical" href="https://j51217123.github.io/j51217123/%E6%B7%BA%E8%AB%87%20React%20Router%20v5%20%E8%88%87%20v6%20%E5%B7%AE%E7%95%B0/">
 
@@ -208,7 +208,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-12-06 19:49:33 / 修改時間：20:35:55" itemprop="dateCreated datePublished" datetime="2021-12-06T19:49:33+08:00">2021-12-06</time>
+              <time title="創建時間：2021-12-06 19:49:33 / 修改時間：21:53:56" itemprop="dateCreated datePublished" datetime="2021-12-06T19:49:33+08:00">2021-12-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,13 +243,14 @@
 <li><p>使用 useNavigate 代替 useHistory，如果要往前或往後，還可以透過 + 或 - 及數字去執行，如下方 v6 範例</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">// v5</span><br><span class="line">import &#123; useHistory &#125; from &#x27;react-router-dom&#x27;;  // &gt;&gt; 導入 useHistory</span><br><span class="line"></span><br><span class="line">function MyButton() &#123;</span><br><span class="line">  let history = useHistory();</span><br><span class="line">  function handleClick() &#123;</span><br><span class="line">    history.push(&#x27;/home&#x27;);</span><br><span class="line">  &#125;;</span><br><span class="line">  return &lt;button onClick=&#123;handleClick&#125;&gt;Submit&lt;/button&gt;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// v6</span><br><span class="line">import &#123; useNavigate &#125; from &#x27;react-router-dom&#x27;; // &gt;&gt; 導入 useNavigate</span><br><span class="line"></span><br><span class="line">function MyButton() &#123;</span><br><span class="line">  const navigate = useNavigate();</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; navigate(-2)&#125;&gt;</span><br><span class="line">        2 steps back</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; navigate(-1)&#125;&gt;1 step back&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; navigate(1)&#125;&gt;</span><br><span class="line">        1 step forward</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; navigate(2)&#125;&gt;</span><br><span class="line">        2 steps forward</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<p>​        </p>
 <ol start="4">
-<li> Bundle Size 從 20kb 減少到 8kb，減少將近 56% <img src="../images/router.jpg"></li>
+<li><p>Bundle Size 從 20kb 減少到 8kb，減少將近 56%</p>
+<p> <img src="https://github.com/j51217123/j51217123/blob/gh-pages/images/postimg/react-router/router.JPG?raw=true"></p>
+</li>
 </ol>
 <hr>
 <h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>雖然我在專案中只有使用 v6 的一小部分功能，但使用體驗上是挺好的，例如 <code>&lt;Route&gt;</code> 和 <code>&lt;Link&gt;</code> 是相對應的，這一點是蠻有感的，另外還有 Outlet 還沒學習，有空學完再補上了 QQ</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://reactrouter.com/docs/en/v6/getting-started/overview">react router v6 官網</a> </p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://reactrouter.com/docs/en/v6/getting-started/overview">react router v6 官網</a></p>
 <p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10282773?sc=hot">來看看 react router v6 有什麼新功能?和 v5 有哪些地方不同?</a></p>
 <p><a target="_blank" rel="noopener" href="https://betterprogramming.pub/whats-new-in-react-router-v6-31930f4aae4c">what’s new in react router v6?</a></p>
 <p><a target="_blank" rel="noopener" href="https://dev.to/arunavamodak/react-router-v5-vs-v6-dp0">react router v5 vs v6</a></p>
