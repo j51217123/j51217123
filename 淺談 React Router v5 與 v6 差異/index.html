@@ -29,20 +29,23 @@
 
   gtag('config', 'G-1Q3J2FEHLG');
 </script>
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="最近寫 Side Project 時，想利用 React Router 進行路由切換，但殊不知 11 月初 React Router 推出了 v6 版本，只好在寫專案前先乖乖讀官方文件，順便透過這篇文章簡單記錄一下差異性 🤣">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://j51217123.github.io/j51217123/hello-world/">
+<meta property="og:title" content="淺談 React Router v5 與 v6 差異">
+<meta property="og:url" content="https://j51217123.github.io/j51217123/%E6%B7%BA%E8%AB%87%20React%20Router%20v5%20%E8%88%87%20v6%20%E5%B7%AE%E7%95%B0/">
 <meta property="og:site_name" content="Ovis Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="最近寫 Side Project 時，想利用 React Router 進行路由切換，但殊不知 11 月初 React Router 推出了 v6 版本，只好在寫專案前先乖乖讀官方文件，順便透過這篇文章簡單記錄一下差異性 🤣">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2021-11-02T01:37:28.753Z">
-<meta property="article:modified_time" content="2021-11-02T01:37:28.754Z">
+<meta property="og:image" content="https://j51217123.github.io/j51217123/images/router.jpg">
+<meta property="article:published_time" content="2021-12-06T11:49:33.000Z">
+<meta property="article:modified_time" content="2021-12-06T12:35:55.816Z">
 <meta property="article:author" content="Ovis Lai">
-<meta property="article:tag" content="Front-End">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="React-Router">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://j51217123.github.io/j51217123/images/router.jpg">
 
-<link rel="canonical" href="https://j51217123.github.io/j51217123/hello-world/">
+<link rel="canonical" href="https://j51217123.github.io/j51217123/%E6%B7%BA%E8%AB%87%20React%20Router%20v5%20%E8%88%87%20v6%20%E5%B7%AE%E7%95%B0/">
 
 
 <script id="page-configurations">
@@ -55,7 +58,7 @@
   };
 </script>
 
-  <title>Hello World | Ovis Blog</title>
+  <title>淺談 React Router v5 與 v6 差異 | Ovis Blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q3J2FEHLG"></script>
     <script>
@@ -181,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://j51217123.github.io/j51217123/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://j51217123.github.io/j51217123/%E6%B7%BA%E8%AB%87%20React%20Router%20v5%20%E8%88%87%20v6%20%E5%B7%AE%E7%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/j51217123/images/avatar.webp">
@@ -194,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          淺談 React Router v5 與 v6 差異
         </h1>
 
         <div class="post-meta">
@@ -203,8 +206,18 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2021-11-02 09:37:28" itemprop="dateCreated datePublished" datetime="2021-11-02T09:37:28+08:00">2021-11-02</time>
+              <time title="創建時間：2021-12-06 19:49:33 / 修改時間：20:35:55" itemprop="dateCreated datePublished" datetime="2021-12-06T19:49:33+08:00">2021-12-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/j51217123/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+                </span>
             </span>
 
           
@@ -218,19 +231,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <p>最近寫 Side Project 時，想利用 React Router 進行路由切換，但殊不知 11 月初 React Router 推出了 v6 版本，只好在寫專案前先乖乖讀官方文件，順便透過這篇文章簡單記錄一下差異性 🤣</p>
+<span id="more"></span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<ol>
+<li><p><code>Switch</code> 將由 <code>Routes</code> 進行取代</p>
+<p> 在 v5 版本原本是使用 <code>Switch</code> 包覆 <code>Route</code>，但在 v6 版本是由 <code>Routes</code>取代，v6 是針對傳遞 props 的方式進行調整，以 <strong>element</strong> 代替 render function，以及 <code>Routes</code> 裡的 <code>&lt;Route&gt;</code> 和 <code>&lt;Link&gt;</code> 是相對應的。使得 <code>&lt;Route path&gt;</code> 和 <code>&lt;Link to&gt;</code> 中的寫法可以更簡要</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// v5</span><br><span class="line">&lt;Switch&gt;</span><br><span class="line">  &lt;Route exact path=&quot;/&quot; component=&#123;Home&#125; /&gt;</span><br><span class="line">  &lt;Route path=&quot;/profile&quot; component=&#123;About&#125; /&gt;</span><br><span class="line">&lt;/Switch&gt;</span><br><span class="line"></span><br><span class="line">// v6</span><br><span class="line">&lt;Routes&gt;</span><br><span class="line">  &lt;Route path=&quot;/&quot; element=&#123;&lt;Home /&gt;&#125; /&gt;</span><br><span class="line">  &lt;Route path=&quot;/profile&quot; element=&#123;&lt;About /&gt;&#125; /&gt;</span><br><span class="line">&lt;/Routes&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p> 在 v5 版本，若加上 exact 代表的是路徑完全符合才會去 render 指定的 UI 畫面，配對的順序是從上到下，但在 v6 版本不用再額外加 exact，有優化過配對方式，讓 Router 抓取最相近的 url 去呈現對應的元件</p>
+</li>
+<li><p>使用 useNavigate 代替 useHistory，如果要往前或往後，還可以透過 + 或 - 及數字去執行，如下方 v6 範例</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">// v5</span><br><span class="line">import &#123; useHistory &#125; from &#x27;react-router-dom&#x27;;  // &gt;&gt; 導入 useHistory</span><br><span class="line"></span><br><span class="line">function MyButton() &#123;</span><br><span class="line">  let history = useHistory();</span><br><span class="line">  function handleClick() &#123;</span><br><span class="line">    history.push(&#x27;/home&#x27;);</span><br><span class="line">  &#125;;</span><br><span class="line">  return &lt;button onClick=&#123;handleClick&#125;&gt;Submit&lt;/button&gt;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// v6</span><br><span class="line">import &#123; useNavigate &#125; from &#x27;react-router-dom&#x27;; // &gt;&gt; 導入 useNavigate</span><br><span class="line"></span><br><span class="line">function MyButton() &#123;</span><br><span class="line">  const navigate = useNavigate();</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; navigate(-2)&#125;&gt;</span><br><span class="line">        2 steps back</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; navigate(-1)&#125;&gt;1 step back&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; navigate(1)&#125;&gt;</span><br><span class="line">        1 step forward</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; navigate(2)&#125;&gt;</span><br><span class="line">        2 steps forward</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>​        </p>
+<ol start="4">
+<li> Bundle Size 從 20kb 減少到 8kb，減少將近 56% <img src="../images/router.jpg"></li>
+</ol>
+<hr>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>雖然我在專案中只有使用 v6 的一小部分功能，但使用體驗上是挺好的，例如 <code>&lt;Route&gt;</code> 和 <code>&lt;Link&gt;</code> 是相對應的，這一點是蠻有感的，另外還有 Outlet 還沒學習，有空學完再補上了 QQ</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://reactrouter.com/docs/en/v6/getting-started/overview">react router v6 官網</a> </p>
+<p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10282773?sc=hot">來看看 react router v6 有什麼新功能?和 v5 有哪些地方不同?</a></p>
+<p><a target="_blank" rel="noopener" href="https://betterprogramming.pub/whats-new-in-react-router-v6-31930f4aae4c">what’s new in react router v6?</a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.to/arunavamodak/react-router-v5-vs-v6-dp0">react router v5 vs v6</a></p>
 
     </div>
 
@@ -239,17 +261,21 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/j51217123/tags/React/" rel="tag"># React</a>
+              <a href="/j51217123/tags/React-Router/" rel="tag"># React-Router</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/j51217123/AppWorks-School-%E9%9D%9E%E6%9C%AC%E7%A7%91%E8%BD%89%E8%81%B7%E5%BF%83%E5%BE%97/" rel="next" title="AppWorks School 非本科轉職心得">
-      AppWorks School 非本科轉職心得 <i class="fa fa-chevron-right"></i>
+    <a href="/j51217123/AppWorks-School-%E9%9D%9E%E6%9C%AC%E7%A7%91%E8%BD%89%E8%81%B7%E5%BF%83%E5%BE%97/" rel="prev" title="AppWorks School 非本科轉職心得">
+      <i class="fa fa-chevron-left"></i> AppWorks School 非本科轉職心得
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -308,7 +334,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">1.</span> <span class="nav-text">總結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

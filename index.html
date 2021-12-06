@@ -17,9 +17,18 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"j51217123.github.io","root":"/j51217123/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"j51217123.github.io","root":"/j51217123/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q3J2FEHLG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Q3J2FEHLG');
+</script>
   <meta property="og:type" content="website">
 <meta property="og:title" content="Ovis Blog">
 <meta property="og:url" content="https://j51217123.github.io/j51217123/">
@@ -44,6 +53,15 @@
 
   <title>Ovis Blog</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q3J2FEHLG"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1Q3J2FEHLG');
+      }
+    </script>
 
 
 
@@ -144,6 +162,7 @@
     </header>
 
     
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -153,6 +172,164 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://j51217123.github.io/j51217123/%E6%B7%BA%E8%AB%87%20React%20Router%20v5%20%E8%88%87%20v6%20%E5%B7%AE%E7%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/j51217123/images/avatar.webp">
+      <meta itemprop="name" content="Ovis Lai">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ovis Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/j51217123/%E6%B7%BA%E8%AB%87%20React%20Router%20v5%20%E8%88%87%20v6%20%E5%B7%AE%E7%95%B0/" class="post-title-link" itemprop="url">淺談 React Router v5 與 v6 差異</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2021-12-06 19:49:33 / 修改時間：20:35:55" itemprop="dateCreated datePublished" datetime="2021-12-06T19:49:33+08:00">2021-12-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/j51217123/categories/React/" itemprop="url" rel="index"><span itemprop="name">React</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近寫 Side Project 時，想利用 React Router 進行路由切換，但殊不知 11 月初 React Router 推出了 v6 版本，只好在寫專案前先乖乖讀官方文件，順便透過這篇文章簡單記錄一下差異性 🤣</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/j51217123/%E6%B7%BA%E8%AB%87%20React%20Router%20v5%20%E8%88%87%20v6%20%E5%B7%AE%E7%95%B0/" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://j51217123.github.io/j51217123/AppWorks-School-%E9%9D%9E%E6%9C%AC%E7%A7%91%E8%BD%89%E8%81%B7%E5%BF%83%E5%BE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/j51217123/images/avatar.webp">
+      <meta itemprop="name" content="Ovis Lai">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ovis Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/j51217123/AppWorks-School-%E9%9D%9E%E6%9C%AC%E7%A7%91%E8%BD%89%E8%81%B7%E5%BF%83%E5%BE%97/" class="post-title-link" itemprop="url">AppWorks School 非本科轉職心得</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2021-11-08 09:31:50" itemprop="dateCreated datePublished" datetime="2021-11-08T09:31:50+08:00">2021-11-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-11-10 09:37:26" itemprop="dateModified" datetime="2021-11-10T09:37:26+08:00">2021-11-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/j51217123/categories/personal/" itemprop="url" rel="index"><span itemprop="name">personal</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>嗨嗨，各位朋友好，小弟我是個轉職生，這段期間參考 Soft_Job 版上的各種心得，從中獲益不少，趁著面試告一段落，也還沒開始正式上工，把這一年的過程紀錄下來，也讓這件事情有個完美的落幕。 所以想分享一下我的經歷，不論是正在猶豫不決，還是已經在轉職的人，希望這篇文章能幫助到你。</p>
+<p>主要會分成轉職及面試兩部份，文章篇幅較長，且多少參雜廢話，請看官們多多包涵，以下正文開始。</p>
+<p>P. S. 如果想看特定內容可以搜尋關鍵字「轉職過程」、「面試過程」</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/j51217123/AppWorks-School-%E9%9D%9E%E6%9C%AC%E7%A7%91%E8%BD%89%E8%81%B7%E5%BF%83%E5%BE%97/" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -291,9 +468,21 @@
       <div class="site-state-item site-state-posts">
           <a href="/j51217123/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">文章</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/j51217123/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/j51217123/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
