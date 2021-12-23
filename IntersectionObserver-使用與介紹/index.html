@@ -29,23 +29,26 @@
 
   gtag('config', 'G-1Q3J2FEHLG');
 </script>
-  <meta name="description" content="在 div 布局還沒盛行之前，聽說都是用 table 進行排版，雖然現在用到的機會變少，但還是要對它有基礎的認識，避免書到用時方恨少，就替自己稍微筆記一下 !">
+  <meta name="description" content="今年在 AppWorks School 培訓時，有寫過 Infinite Scroll，起初學習時只覺得畫面能動就好，效能什麼的我才不管呢，幹嘛要這麼麻煩 🤣🤣  但這真的是可以的嗎 XD 答案當然是不行，當你的資料很多的時候，如果一次進行渲染可能就會延遲掉幀，導致使用者體驗變差，那就來介紹優化方法之一 Infinite Scroll">
 <meta property="og:type" content="article">
-<meta property="og:title" content="表格 Table 介紹">
-<meta property="og:url" content="https://j51217123.github.io/j51217123/%E8%A1%A8%E6%A0%BC-Table-%E4%BB%8B%E7%B4%B9/">
+<meta property="og:title" content="IntersectionObserver 使用與介紹">
+<meta property="og:url" content="https://j51217123.github.io/j51217123/IntersectionObserver-%E4%BD%BF%E7%94%A8%E8%88%87%E4%BB%8B%E7%B4%B9/">
 <meta property="og:site_name" content="Ovis Blog">
-<meta property="og:description" content="在 div 布局還沒盛行之前，聽說都是用 table 進行排版，雖然現在用到的機會變少，但還是要對它有基礎的認識，避免書到用時方恨少，就替自己稍微筆記一下 !">
+<meta property="og:description" content="今年在 AppWorks School 培訓時，有寫過 Infinite Scroll，起初學習時只覺得畫面能動就好，效能什麼的我才不管呢，幹嘛要這麼麻煩 🤣🤣  但這真的是可以的嗎 XD 答案當然是不行，當你的資料很多的時候，如果一次進行渲染可能就會延遲掉幀，導致使用者體驗變差，那就來介紹優化方法之一 Infinite Scroll">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://github.com/j51217123/j51217123/blob/gh-pages/images/table.JPG?raw=true">
-<meta property="article:published_time" content="2021-12-20T07:53:34.000Z">
-<meta property="article:modified_time" content="2021-12-20T09:14:40.949Z">
+<meta property="og:image" content="https://i.imgur.com/v8bLmsI.png">
+<meta property="og:image" content="https://i.imgur.com/Nr6cbYI.png">
+<meta property="article:published_time" content="2021-12-23T09:12:33.000Z">
+<meta property="article:modified_time" content="2021-12-23T09:23:22.483Z">
 <meta property="article:author" content="Ovis Lai">
-<meta property="article:tag" content="HTML">
-<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Infinite Scroll">
+<meta property="article:tag" content="IntersectionObserver">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/j51217123/j51217123/blob/gh-pages/images/table.JPG?raw=true">
+<meta name="twitter:image" content="https://i.imgur.com/v8bLmsI.png">
 
-<link rel="canonical" href="https://j51217123.github.io/j51217123/%E8%A1%A8%E6%A0%BC-Table-%E4%BB%8B%E7%B4%B9/">
+<link rel="canonical" href="https://j51217123.github.io/j51217123/IntersectionObserver-%E4%BD%BF%E7%94%A8%E8%88%87%E4%BB%8B%E7%B4%B9/">
 
 
 <script id="page-configurations">
@@ -58,7 +61,7 @@
   };
 </script>
 
-  <title>表格 Table 介紹 | Ovis Blog</title>
+  <title>IntersectionObserver 使用與介紹 | Ovis Blog</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q3J2FEHLG"></script>
     <script>
@@ -184,7 +187,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://j51217123.github.io/j51217123/%E8%A1%A8%E6%A0%BC-Table-%E4%BB%8B%E7%B4%B9/">
+    <link itemprop="mainEntityOfPage" href="https://j51217123.github.io/j51217123/IntersectionObserver-%E4%BD%BF%E7%94%A8%E8%88%87%E4%BB%8B%E7%B4%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/j51217123/images/avatar.webp">
@@ -197,7 +200,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          表格 Table 介紹
+          IntersectionObserver 使用與介紹
         </h1>
 
         <div class="post-meta">
@@ -208,7 +211,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2021-12-20 15:53:34 / 修改時間：17:14:40" itemprop="dateCreated datePublished" datetime="2021-12-20T15:53:34+08:00">2021-12-20</time>
+              <time title="創建時間：2021-12-23 17:12:33 / 修改時間：17:23:22" itemprop="dateCreated datePublished" datetime="2021-12-23T17:12:33+08:00">2021-12-23</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -216,7 +219,11 @@
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/j51217123/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+                  <a href="/j51217123/categories/Web-APIs/" itemprop="url" rel="index"><span itemprop="name">Web APIs</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/j51217123/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
                 </span>
             </span>
 
@@ -231,54 +238,77 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在 div 布局還沒盛行之前，聽說都是用 table 進行排版，雖然現在用到的機會變少，但還是要對它有基礎的認識，避免書到用時方恨少，就替自己稍微筆記一下 !</p>
+        <p>今年在 AppWorks School 培訓時，有寫過 Infinite Scroll，起初學習時只覺得畫面能動就好，效能什麼的我才不管呢，幹嘛要這麼麻煩 🤣🤣</p>
+<p><img src="https://i.imgur.com/v8bLmsI.png" alt="Image"></p>
+<p>但這真的是可以的嗎 XD 答案當然是不行，當你的資料很多的時候，如果一次進行渲染可能就會延遲掉幀，導致使用者體驗變差，那就來介紹優化方法之一 <strong>Infinite Scroll</strong></p>
 <span id="more"></span>
 
-<p>在開始介紹之前，先附上簡易的 <a target="_blank" rel="noopener" href="https://codesandbox.io/s/old-river-fq73z?file=/index.html"><strong>範例</strong></a></p>
-<img src="https://github.com/j51217123/j51217123/blob/gh-pages/images/table.JPG?raw=true" alt="表格" style="zoom: 80%;" />
+<hr>
+<h2 id="Infinite-Scroll-介紹"><a href="#Infinite-Scroll-介紹" class="headerlink" title="Infinite Scroll 介紹"></a><strong>Infinite Scroll 介紹</strong></h2><p>由於使用者不一定會將畫面上所有的資料都進行瀏覽，為了讓使用者擁有流暢的體驗，故以分批載入資料的方式，並隨著瀏覽過程將資料批次載入。</p>
+<p>資料的傳遞，畫面的渲染等都需要時間和消耗效能，當資料很多的時候，如果一次進行渲染會消耗較多的效能，若改為批次載入，除了提高使用體驗，也能有效降低運行負擔。</p>
+<hr>
+<h2 id="IntersectionObserver-Web-API-舉例說明"><a href="#IntersectionObserver-Web-API-舉例說明" class="headerlink" title="IntersectionObserver Web API 舉例說明"></a><strong>IntersectionObserver Web API 舉例說明</strong></h2><p>IntersectionObserver Web API ( 後續簡稱 IO )，讓完成 Infinite Scroll 簡單許多，但在開始介紹 IO 之前，先來闡述與過去實作的差異在哪。</p>
+<p>過去實作方法是用 <code>scroll</code> 監聽及 <code>getBoundingClientRect</code> 搭配 <code>offset</code> 處理，必需計算元素的位置，來確認元素是否進入特定的範圍內，這是真的挺麻煩的。</p>
+<p>把過往實作假設成日常生活例子，小時候的我們沒有手機，放學要等媽媽來接，就要站在定點一直等，直到看到媽媽出現為止，這期間不能隨意離開，因為無法確定離開的期間媽媽會不會突然出現，導致找不到你。</p>
+<p>過一陣子後媽媽覺得這種接送方式不方便，所以就買了手機 ( IO ) 給我們，這時候就不用在校門口等媽媽啦~ 可以<del>去操場盡情玩耍到忘記回家</del>，誒！是在教室休息等電話啦，如果接到電話再趕快到校門口去就好。</p>
+<hr>
+<h2 id="IntersectionObserver-使用"><a href="#IntersectionObserver-使用" class="headerlink" title="IntersectionObserver 使用"></a><strong>IntersectionObserver 使用</strong></h2><p><code>observer</code> 的建立方法如下，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> observer = <span class="keyword">new</span> IntersectionObserver(callback, options);</span><br></pre></td></tr></table></figure>
 
+<p>而 <code>IntersectionObserver</code>是瀏覽器提供的建構函式，<code>callback</code>是當目標進入或離開指定的觀察區時觸發，<code>option</code>是設定觀察區的物件，不填就是預設值</p>
+<p><strong>Options 設定</strong></p>
+<p>Options 總共有三個屬性可以設定，分別是 <code>root</code>、<code>rootMargin</code>、<code>Threshold</code></p>
 <ul>
-<li><strong>表格主結構</strong><ul>
-<li>  分別使用 thead、tbody、tfoot 來定義表頭、表身、表尾</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><strong>表格元素</strong></p>
-<ul>
-<li><p>Caption 表格標題</p>
-<ul>
-<li>  通常設定於 table 的第一個子元素，用於表示該 table 的 title</li>
-</ul>
-</li>
-<li><p>th 表格欄位標題</p>
-<ul>
-<li>  針對表格中明確為欄位標題者，使用 th，例如下圖中的名稱、價格</li>
-</ul>
-</li>
-<li><p>  tr 表格中的 row 元素</p>
-</li>
-<li><p>  td 表格中每一個單元格，必需放在 tr 裡面</p>
-</li>
-<li><p>colgroup &amp; col</p>
-<ul>
-<li>  span 可定義要選取的 column 數目</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>常用表格</strong> <strong>CSS</strong> <strong>屬性</strong></p>
-<ul>
-<li>  abbr：設定或取得該欄位的值，通常用於縮寫</li>
-<li>  colspan ：合併橫向儲存格</li>
-<li>  rowspan ：合併縱向儲存格 </li>
-<li>  scope ：透過 scope 可以使閱讀器用更有效的方式朗讀，讓視障用戶根據標記一次性讀取一整列或行，通常設定 scope=“value”， value 可以是 col、row、colgroup、rowgroup</li>
-</ul>
-</li>
+<li>  <strong>root</strong>：預設是 null ，當目標進入到觀察區內就執行 callback，離開觀察區也會執行 callback</li>
+<li>  <strong>rootMargin</strong>：預設是 0px，未指定時是使用當前 viewport 邊界，放大或縮小 root 的邊界</li>
+<li>  <strong>Threshold</strong>：預設是 0，指目標本身出現多少部份在 root 裡，而出現的部份到指定的百分比後，就會執行 callback</li>
 </ul>
 <hr>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://medium.com/unalai/%E8%AA%8D%E8%AD%98%E8%A1%A8%E6%A0%BC%E7%B4%B0%E7%AF%80-%E5%AE%8C%E5%96%84-table-%E7%9A%84%E4%BD%BF%E7%94%A8-36b0952115f1">認識表格細節，完善 table 的使用</a></p>
-<p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10190595">HTML5 表格 Table</a></p>
+<h2 id="IntersectionObserverEntry"><a href="#IntersectionObserverEntry" class="headerlink" title="IntersectionObserverEntry"></a>IntersectionObserverEntry</h2><p><code>IntersectionObserverEntry</code> 中的屬性整理成下列表格</p>
+<table>
+<thead>
+<tr>
+<th><strong>Property Name</strong></th>
+<th><strong>introduction</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>time</strong></td>
+<td><strong>建立</strong> <strong>IO</strong> <strong>後到觸發</strong> <strong>callback</strong> <strong>經過的時間，單位是</strong> <strong>ms</strong></td>
+</tr>
+<tr>
+<td><strong>rootBounds</strong></td>
+<td><strong>「觀察區」的矩形資料 ，意即</strong> <strong>root</strong> <strong>資訊</strong></td>
+</tr>
+<tr>
+<td><strong>boundingClientRect</strong></td>
+<td><strong>觸發</strong> <strong>callback</strong> <strong>的整個目標矩形資訊</strong></td>
+</tr>
+<tr>
+<td><strong>intersectionRect</strong></td>
+<td><strong>目標與鏡頭</strong> <strong>root</strong> <strong>的交錯區域</strong></td>
+</tr>
+<tr>
+<td><strong>isIntersecting</strong></td>
+<td><strong>目標是否出現在鏡頭 root 中，true 等於出現， false 等於未出現</strong></td>
+</tr>
+<tr>
+<td><strong>intersectionRatio</strong></td>
+<td><strong>目標的可見比例，即</strong> <strong>intersectionRect</strong> <strong>占</strong> <strong>boundingClientRect</strong> <strong>的比例，完全可見為</strong> <strong>1，完全不可見時小於等於 0</strong></td>
+</tr>
+<tr>
+<td><strong>target</strong></td>
+<td><strong>目標的</strong> <strong>DOM</strong> <strong>節點</strong></td>
+</tr>
+</tbody></table>
+<p>其中 <code>boundingClientRect </code>、<code>intersectionRect</code> 、<code>rootBounds</code> 用下圖來呈現，請搭配上面表格去理解</p>
+<p><img src="https://i.imgur.com/Nr6cbYI.png" alt="Image"></p>
+<hr>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>其實過去有試著寫過幾次 IO，最終都因為理解深度不足以失敗收場，但因為這次在公司專案被分配到使用 IO 優化界面，也只能趕快學起來 QQ ，在網路上搜尋到不少其他前輩分享的心得，真的想要弄懂，必需花點時間逐步跟著操作，才能內化成自己的養分</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://mini-ghost.dev/blog/api-intersection-oserver/">Intersection Observer API 使用筆記 - Alex Liu</a></p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/%E9%BA%A5%E5%85%8B%E7%9A%84%E5%8D%8A%E8%B7%AF%E5%87%BA%E5%AE%B6%E7%AD%86%E8%A8%98/%E8%AA%8D%E8%AD%98-intersection-observer-api-%E5%AF%A6%E4%BD%9C-lazy-loading-%E5%92%8C-infinite-scroll-c8d434ad218c">認識 Intersection Observer API：實作 Lazy Loading 和 Infinite Scroll</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.letswrite.tw/intersection-oserver-basic/#intersectionobserver%ef%bc%9f%e6%8b%bf%e8%b6%85%e5%95%86%e7%9a%84%e6%ad%a1%e8%bf%8e%e5%85%89%e8%87%a8%e4%be%86%e8%aa%aa%e6%98%8e">IntersectionObserver：上篇 – 基本介紹及使用</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2016/11/intersectionobserver_api.html">IntersectionObserver API 使用教程</a></p>
 
     </div>
 
@@ -288,8 +318,10 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/j51217123/tags/HTML/" rel="tag"># HTML</a>
-              <a href="/j51217123/tags/CSS/" rel="tag"># CSS</a>
+              <a href="/j51217123/tags/React/" rel="tag"># React</a>
+              <a href="/j51217123/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/j51217123/tags/Infinite-Scroll/" rel="tag"># Infinite Scroll</a>
+              <a href="/j51217123/tags/IntersectionObserver/" rel="tag"># IntersectionObserver</a>
           </div>
 
         
@@ -298,13 +330,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/j51217123/%E6%B7%BA%E8%AB%87%20React%20Router%20v5%20%E8%88%87%20v6%20%E5%B7%AE%E7%95%B0/" rel="prev" title="淺談 React Router v5 與 v6 差異">
-      <i class="fa fa-chevron-left"></i> 淺談 React Router v5 與 v6 差異
+    <a href="/j51217123/%E8%A1%A8%E6%A0%BC-Table-%E4%BB%8B%E7%B4%B9/" rel="prev" title="表格 Table 介紹">
+      <i class="fa fa-chevron-left"></i> 表格 Table 介紹
     </a></div>
-      <div class="post-nav-item">
-    <a href="/j51217123/IntersectionObserver-%E4%BD%BF%E7%94%A8%E8%88%87%E4%BB%8B%E7%B4%B9/" rel="next" title="IntersectionObserver 使用與介紹">
-      IntersectionObserver 使用與介紹 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -363,7 +392,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Infinite-Scroll-%E4%BB%8B%E7%B4%B9"><span class="nav-number">1.</span> <span class="nav-text">Infinite Scroll 介紹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IntersectionObserver-Web-API-%E8%88%89%E4%BE%8B%E8%AA%AA%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text">IntersectionObserver Web API 舉例說明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IntersectionObserver-%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">IntersectionObserver 使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IntersectionObserverEntry"><span class="nav-number">4.</span> <span class="nav-text">IntersectionObserverEntry</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">5.</span> <span class="nav-text">總結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
