@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/j51217123/images/apple-touch-Oicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/j51217123/images/Oicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/j51217123/images/Oicon-16x16.png">
+  <link rel="mask-icon" href="/j51217123/images/Oicon-16x16.svg" color="#222">
+
+<link rel="stylesheet" href="/j51217123/css/main.css">
+
+
+<link rel="stylesheet" href="/j51217123/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"j51217123.github.io","root":"/j51217123/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q3J2FEHLG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1Q3J2FEHLG');
+</script>
+  <meta name="description" content="前言這個 Blog 擺放將近一年沒更新…不小心懶惰太久了哈哈，想到前陣子在公司分享過命名規範的主題，就整理一下放到自己的 Blog 上，廢話不多說，下面正文開始 !">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CleanCode &amp; 有意義的命名">
+<meta property="og:url" content="https://j51217123.github.io/j51217123/CleanCode%20&%20%E6%9C%89%E6%84%8F%E7%BE%A9%E7%9A%84%E5%91%BD%E5%90%8D/">
+<meta property="og:site_name" content="Ovis Blog">
+<meta property="og:description" content="前言這個 Blog 擺放將近一年沒更新…不小心懶惰太久了哈哈，想到前陣子在公司分享過命名規範的主題，就整理一下放到自己的 Blog 上，廢話不多說，下面正文開始 !">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cdn.pixabay.com/photo/2018/03/19/18/20/tea-time-3240766_960_720.jpg">
+<meta property="og:image" content="https://github.com/j51217123/j51217123/blob/gh-pages/images/cleancode-ch01-1.png?raw=true">
+<meta property="og:image" content="https://github.com/j51217123/j51217123/blob/gh-pages/images/cleancode-ch02-1.png?raw=true">
+<meta property="article:published_time" content="2022-11-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-30T08:50:00.506Z">
+<meta property="article:author" content="Ovis Lai">
+<meta property="article:tag" content="CleanCode">
+<meta property="article:tag" content="開發技巧">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.pixabay.com/photo/2018/03/19/18/20/tea-time-3240766_960_720.jpg">
+
+<link rel="canonical" href="https://j51217123.github.io/j51217123/CleanCode%20&%20%E6%9C%89%E6%84%8F%E7%BE%A9%E7%9A%84%E5%91%BD%E5%90%8D/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>CleanCode & 有意義的命名 | Ovis Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Q3J2FEHLG"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-1Q3J2FEHLG');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/j51217123/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ovis Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/j51217123/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/j51217123/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/j51217123/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/j51217123/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/j51217123/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://j51217123.github.io/j51217123/CleanCode%20&%20%E6%9C%89%E6%84%8F%E7%BE%A9%E7%9A%84%E5%91%BD%E5%90%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/j51217123/images/avatar.webp">
+      <meta itemprop="name" content="Ovis Lai">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ovis Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CleanCode & 有意義的命名
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2022-11-30 00:00:00 / 修改時間：16:50:00" itemprop="dateCreated datePublished" datetime="2022-11-30T00:00:00+08:00">2022-11-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/j51217123/categories/personal/" itemprop="url" rel="index"><span itemprop="name">personal</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>這個 Blog 擺放將近一年沒更新…不小心懶惰太久了哈哈，想到前陣子在公司分享過命名規範的主題，就整理一下放到自己的 Blog 上，廢話不多說，下面正文開始 !</p>
+<span id="more"></span>
+
+<p><img src="https://cdn.pixabay.com/photo/2018/03/19/18/20/tea-time-3240766_960_720.jpg" alt="Image"></p>
+<h3 id="什麼是-Clean-Code"><a href="#什麼是-Clean-Code" class="headerlink" title="什麼是 Clean Code ?"></a>什麼是 Clean Code ?</h3><p>書中歸納了幾位程式大大對於 Clean Code 的看法，<strong>不外乎是淺顯易懂的、沒有贅餘重複、能通過單元及驗收測試，有著正規的錯誤處理機制。</strong>因為修改、撰寫程式前的第一步就是讀懂程式本身，花在閱讀程式的時間遠遠超過寫程式的時間。所以，所以讓程式碼更容易閱讀，也才能讓新的程式碼變得更容易撰寫。  我們在進行專案開發時，就可以順手從小地方開始做起，比如說清除一些重複或未使用的程式碼，又或是改變一個變數的名稱。</p>
+<h3 id="為什麼需要整潔、無瑕的程式碼"><a href="#為什麼需要整潔、無瑕的程式碼" class="headerlink" title="為什麼需要整潔、無瑕的程式碼 ?"></a>為什麼需要整潔、無瑕的程式碼 ?</h3><p>這是一本關於「程式品質」的書，在不同的領域、不同的語言，定義「品質」的指標、原則可能不同。但雜亂而品質低劣的程式碼，所造成的影響效應是相近的，最中肯的評述，就是序言所提的<strong>『唯一有效的的『程式品質』度量單位： (Code Review時)每分鐘罵髒話的次數(wtfs/minutes)』</strong> (個人覺得蠻中肯的XD</p>
+<p><img src="https://github.com/j51217123/j51217123/blob/gh-pages/images/cleancode-ch01-1.png?raw=true" alt="img"></p>
+<p>當我們持續寫出雜亂的程式碼時，會使團隊的產能持續下降，最終形成一個惡性循環，如果想要遏止這樣的情形發生，建議的方法是隨時隨地盡可能地確保程式碼整齊潔淨</p>
+<h2 id="何謂有意義的命名"><a href="#何謂有意義的命名" class="headerlink" title="何謂有意義的命名"></a>何謂有意義的命名</h2><p>就是讓名稱代表其意圖，不管是變數、函式甚至到元件，都要可以告訴我們，它是做什麼用，該如何使用，當我們命名具備展現意圖，就能更容易去理解及修改程式碼。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 錯誤  const d</span></span><br><span class="line"><span class="comment">// 正確  const daysSinceCreation</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 錯誤 theList</span></span><br><span class="line"><span class="comment">// 正確 theAccountList or theAccountGroup</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="產生有意義的區別"><a href="#產生有意義的區別" class="headerlink" title="產生有意義的區別"></a>產生有意義的區別</h2><ul>
+<li><p>數字序列命名法</p>
+<ul>
+<li><p>  雖然數字序列法可以正常被執行，但它帶來多少困擾，誰可以告訴我下圖中的 data1, data2 分別是什麼嗎 XD</p>
+</li>
+<li><p>  <img src="https://github.com/j51217123/j51217123/blob/gh-pages/images/cleancode-ch02-1.png?raw=true" alt="image-20221130143457418"></p>
+</li>
+<li><p>無意義的單字詞</p>
+<ul>
+<li>  假如同時存在 ProductInfo 與 ProductData，其實是很難去區分兩者間的差別，就會變成是無意義的單詞</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用可被搜尋的名字"><a href="#使用可被搜尋的名字" class="headerlink" title="使用可被搜尋的名字"></a>使用可被搜尋的名字</h2><p>使用單一字母的名稱或數值，會造成搜尋上的困難，但也不是說長命名就是絕對，因為命名時需注意其長度應該與 Scope 相對應，試想下方中的數字 5 或 34，要如何在專案中精準搜尋，如果給予相對應的名稱，搜尋上就會輕鬆許多!</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> s = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">34</span>; ++i)&#123;</span><br><span class="line">    s += t[i] / <span class="number">5</span></span><br><span class="line">&#125;</span><br><span class="line">--------------------------------</span><br><span class="line"><span class="keyword">const</span> NUMBER_OF_TASKS = <span class="number">34</span></span><br><span class="line"><span class="keyword">const</span> WORK_DAYS_PER_WEEK = <span class="number">5</span></span><br><span class="line"><span class="keyword">let</span> sum = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; NUMBER_OF_TASKS; ++i)&#123;</span><br><span class="line">    sum += tasks[i] / WORK_DAYS_PER_WEEK</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>變數應使用名詞或是名詞片語來命名，例如 customer、wikiPage，同時避免使用 Info、Data 此類無區別意義的字詞</p>
+<p>函式應使用動詞或動詞片語來命名，例如 postPayment、deletePage，取值或 call API 可以用 <strong>get</strong>、<strong>fetch</strong>、<strong>retrieve</strong> 當字首，修改時我們可以用 <strong>set</strong> 當字首，存值時可以用 <strong>onSave</strong> 當字首，判斷時可以用 <strong>is</strong> 當字首，且盡量在每次撰寫時使用一種持續到底，下方列出一些我從參考文章中我覺得還不錯的命名</p>
+<h4 id="Example-Function"><a href="#Example-Function" class="headerlink" title="Example - Function"></a>Example - Function</h4><h5 id="bull-常見通用例子"><a href="#bull-常見通用例子" class="headerlink" title="&bull; 常見通用例子"></a>&bull; 常見通用例子</h5><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">onSubmit</span>: <span class="string">&#x27;提交表單&#x27;</span>,</span><br><span class="line">    <span class="attr">handleSizeChange</span>: <span class="string">&#x27;處理分頁頁數改變&#x27;</span>,</span><br><span class="line">    <span class="attr">handlePageChange</span>: <span class="string">&#x27;處理分頁顯示數量改變&#x27;</span>,</span><br><span class="line">    <span class="attr">onKeydown</span>: <span class="string">&#x27;按下按键&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="bull-非同步處理"><a href="#bull-非同步處理" class="headerlink" title="&bull; 非同步處理"></a>&bull; 非同步處理</h5><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">getUsers</span>: <span class="string">&#x27;獲取用戶列表&#x27;</span>,</span><br><span class="line">    <span class="attr">fetchToken</span>: <span class="string">&#x27;取得Token&#x27;</span>,</span><br><span class="line">    <span class="attr">deleteUser</span>: <span class="string">&#x27;刪除用戶&#x27;</span>,</span><br><span class="line">    <span class="attr">removeTag</span>: <span class="string">&#x27;移除標籤&#x27;</span>,</span><br><span class="line">    <span class="attr">updateUserInfo</span>: <span class="string">&#x27;更新用戶資訊&#x27;</span>,</span><br><span class="line">    <span class="attr">addUser</span>: <span class="string">&#x27;添加用戶&#x27;</span>,</span><br><span class="line">    <span class="attr">createAccount</span>: <span class="string">&#x27;創建賬戶&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="bull-跳轉頁面"><a href="#bull-跳轉頁面" class="headerlink" title="&bull; 跳轉頁面"></a>&bull; 跳轉頁面</h5><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">toProductDetail</span>: <span class="string">&#x27;跳轉到商品詳情頁面&#x27;</span>,</span><br><span class="line">    <span class="attr">navigateToHome</span>: <span class="string">&#x27;導航到首頁&#x27;</span>,</span><br><span class="line">    <span class="attr">jumpHome</span>: <span class="string">&#x27;跳轉首頁&#x27;</span>,</span><br><span class="line">    <span class="attr">goHome</span>: <span class="string">&#x27;跳轉首頁&#x27;</span>,</span><br><span class="line">    <span class="attr">redirectToLogin</span>: <span class="string">&#x27;重定向到登錄頁&#x27;</span>,</span><br><span class="line">    <span class="attr">switchTab</span>: <span class="string">&#x27;切換Tab分頁&#x27;</span>,</span><br><span class="line">    <span class="attr">backHome</span>: <span class="string">&#x27;回到主頁&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="Example-Boolean"><a href="#Example-Boolean" class="headerlink" title="Example - Boolean"></a>Example - Boolean</h4><h5 id="bull-可見、進行中的狀態"><a href="#bull-可見、進行中的狀態" class="headerlink" title="&bull; 可見、進行中的狀態"></a>&bull; 可見、進行中的狀態</h5><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">isShow</span>: <span class="string">&#x27;是否顯示&#x27;</span>,</span><br><span class="line">    <span class="attr">isVisible</span>: <span class="string">&#x27;是否可見&#x27;</span>,</span><br><span class="line">    <span class="attr">isLoading</span>: <span class="string">&#x27;是否處於加載中&#x27;</span>,</span><br><span class="line">    <span class="attr">isConnecting</span>: <span class="string">&#x27;是否處於連接中&#x27;</span>,</span><br><span class="line">    <span class="attr">isValidating</span>: <span class="string">&#x27;正在驗證中&#x27;</span>,</span><br><span class="line">    <span class="attr">isRunning</span>: <span class="string">&#x27;正在運行中&#x27;</span>,</span><br><span class="line">    <span class="attr">isListening</span>: <span class="string">&#x27;正在監聽中&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="bull-屬性狀態類"><a href="#bull-屬性狀態類" class="headerlink" title="&bull; 屬性狀態類"></a>&bull; 屬性狀態類</h5><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">disabled</span>: <span class="string">&#x27;是否禁用&#x27;</span>,</span><br><span class="line">    <span class="attr">editable</span>: <span class="string">&#x27;是否可编辑&#x27;</span>,</span><br><span class="line">    <span class="attr">clearable</span>: <span class="string">&#x27;是否可清除&#x27;</span>,</span><br><span class="line">    <span class="attr">readonly</span>: <span class="string">&#x27;僅唯讀&#x27;</span>,</span><br><span class="line">    <span class="attr">expandable</span>: <span class="string">&#x27;是否可展開&#x27;</span>,</span><br><span class="line">    <span class="attr">checked</span>: <span class="string">&#x27;是否選中&#x27;</span>,</span><br><span class="line">    <span class="attr">iterable</span>: <span class="string">&#x27;是否可迭代&#x27;</span>,</span><br><span class="line">    <span class="attr">clickable</span>: <span class="string">&#x27;是否可點擊&#x27;</span>,</span><br><span class="line">    <span class="attr">draggable</span>: <span class="string">&#x27;是否可拖曳&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="bull-配置、選項類"><a href="#bull-配置、選項類" class="headerlink" title="&bull; 配置、選項類"></a>&bull; 配置、選項類</h5><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">enableFilter</span>: <span class="string">&#x27;開啟過濾&#x27;</span>,</span><br><span class="line">    <span class="attr">allownCustomScale</span>: <span class="string">&#x27;允許自定義縮放&#x27;</span>,</span><br><span class="line">    <span class="attr">shouldClear</span>: <span class="string">&#x27;是否清除&#x27;</span>,</span><br><span class="line">    <span class="attr">canSelectItem</span>: <span class="string">&#x27;是否能選中元素&#x27;</span>,</span><br><span class="line">    <span class="attr">noColon</span>: <span class="string">&#x27;不顯示label後面的冒號&#x27;</span>,</span><br><span class="line">    <span class="attr">checkJs</span>: <span class="string">&#x27;檢查Js&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="Example-Others"><a href="#Example-Others" class="headerlink" title="Example - Others"></a>Example - Others</h4><h5 id="bull-列表、清單命名"><a href="#bull-列表、清單命名" class="headerlink" title="&bull; 列表、清單命名"></a>&bull; 列表、清單命名</h5><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">users</span>: <span class="string">&#x27;用戶列表&#x27;</span>,</span><br><span class="line">    <span class="attr">userList</span>: <span class="string">&#x27;用戶列表&#x27;</span>,</span><br><span class="line">    <span class="attr">tabOptions</span>: <span class="string">&#x27;分頁選項&#x27;</span>,</span><br><span class="line">    <span class="attr">stateMaps</span>: <span class="string">&#x27;狀態映射表&#x27;</span>,</span><br><span class="line">    <span class="attr">selectedNodes</span>: <span class="string">&#x27;選中的節點&#x27;</span>,</span><br><span class="line">    <span class="attr">btnGroup</span>: <span class="string">&#x27;按鈕組&#x27;</span>,</span><br><span class="line">    <span class="attr">userEntities</span>: <span class="string">&#x27;用戶實體&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="bull-格式化數據"><a href="#bull-格式化數據" class="headerlink" title="&bull; 格式化數據"></a>&bull; 格式化數據</h5><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">formatDate</span>: <span class="string">&#x27;格式化日期&#x27;</span>,</span><br><span class="line">    <span class="attr">convertCurrency</span>: <span class="string">&#x27;轉換貨幣單位&#x27;</span>,</span><br><span class="line">    <span class="attr">inverseList</span>: <span class="string">&#x27;反轉數據列表&#x27;</span>,</span><br><span class="line">    <span class="attr">toggleAllSelected</span>: <span class="string">&#x27;切換所有已選擇數據狀態&#x27;</span>,</span><br><span class="line">    <span class="attr">parseXml</span>: <span class="string">&#x27;解析XML數據&#x27;</span>,</span><br><span class="line">    <span class="attr">flatSelect</span>: <span class="string">&#x27;展開選擇數據&#x27;</span>,</span><br><span class="line">    <span class="attr">sortByDesc</span>: <span class="string">&#x27;按降序排序&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="bull-當前選項"><a href="#bull-當前選項" class="headerlink" title="&bull; 當前選項"></a>&bull; 當前選項</h5><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">activeTab</span>: <span class="string">&#x27;當前選中的分頁&#x27;</span>,</span><br><span class="line">    <span class="attr">currentPage</span>: <span class="string">&#x27;當前頁面&#x27;</span>,</span><br><span class="line">    <span class="attr">selectedData</span>: <span class="string">&#x27;當前選中的數據&#x27;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>要挑選一個好的名稱，需要有良好的描述技巧，是需要長時間訓練的。開發過程中，不論是翻新命名或是新命名，透過細節上的處理，可以使程式碼的易讀性提高許多，或短或長的成果來看，都是正向的。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020039039">前端开发变量命名系列 - JavaScript篇</a></p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/%E7%A8%8B%E5%BC%8F%E6%84%9B%E5%A5%BD%E8%80%85/%E8%AE%8A%E6%95%B8%E5%91%BD%E5%90%8D-f53cd1115076">基礎但不簡單: 變數命名規則</a></p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/%E6%89%8B%E5%AF%AB%E7%AD%86%E8%A8%98/meaningful-names-893d3ae05ec">第 2 章 有意義的命名 | Clean Code</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/j51217123/tags/CleanCode/" rel="tag"># CleanCode</a>
+              <a href="/j51217123/tags/%E9%96%8B%E7%99%BC%E6%8A%80%E5%B7%A7/" rel="tag"># 開發技巧</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/j51217123/IntersectionObserver-%E4%BD%BF%E7%94%A8%E8%88%87%E4%BB%8B%E7%B4%B9/" rel="prev" title="IntersectionObserver 使用與介紹">
+      <i class="fa fa-chevron-left"></i> IntersectionObserver 使用與介紹
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-Clean-Code"><span class="nav-number">1.1.</span> <span class="nav-text">什麼是 Clean Code ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E9%9C%80%E8%A6%81%E6%95%B4%E6%BD%94%E3%80%81%E7%84%A1%E7%91%95%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="nav-number">1.2.</span> <span class="nav-text">為什麼需要整潔、無瑕的程式碼 ?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%95%E8%AC%82%E6%9C%89%E6%84%8F%E7%BE%A9%E7%9A%84%E5%91%BD%E5%90%8D"><span class="nav-number">2.</span> <span class="nav-text">何謂有意義的命名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A2%E7%94%9F%E6%9C%89%E6%84%8F%E7%BE%A9%E7%9A%84%E5%8D%80%E5%88%A5"><span class="nav-number">3.</span> <span class="nav-text">產生有意義的區別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%AF%E8%A2%AB%E6%90%9C%E5%B0%8B%E7%9A%84%E5%90%8D%E5%AD%97"><span class="nav-number">4.</span> <span class="nav-text">使用可被搜尋的名字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-Function"><span class="nav-number">4.0.1.</span> <span class="nav-text">Example - Function</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#bull-%E5%B8%B8%E8%A6%8B%E9%80%9A%E7%94%A8%E4%BE%8B%E5%AD%90"><span class="nav-number">4.0.1.1.</span> <span class="nav-text">• 常見通用例子</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bull-%E9%9D%9E%E5%90%8C%E6%AD%A5%E8%99%95%E7%90%86"><span class="nav-number">4.0.1.2.</span> <span class="nav-text">• 非同步處理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bull-%E8%B7%B3%E8%BD%89%E9%A0%81%E9%9D%A2"><span class="nav-number">4.0.1.3.</span> <span class="nav-text">• 跳轉頁面</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-Boolean"><span class="nav-number">4.0.2.</span> <span class="nav-text">Example - Boolean</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#bull-%E5%8F%AF%E8%A6%8B%E3%80%81%E9%80%B2%E8%A1%8C%E4%B8%AD%E7%9A%84%E7%8B%80%E6%85%8B"><span class="nav-number">4.0.2.1.</span> <span class="nav-text">• 可見、進行中的狀態</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bull-%E5%B1%AC%E6%80%A7%E7%8B%80%E6%85%8B%E9%A1%9E"><span class="nav-number">4.0.2.2.</span> <span class="nav-text">• 屬性狀態類</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bull-%E9%85%8D%E7%BD%AE%E3%80%81%E9%81%B8%E9%A0%85%E9%A1%9E"><span class="nav-number">4.0.2.3.</span> <span class="nav-text">• 配置、選項類</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Example-Others"><span class="nav-number">4.0.3.</span> <span class="nav-text">Example - Others</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#bull-%E5%88%97%E8%A1%A8%E3%80%81%E6%B8%85%E5%96%AE%E5%91%BD%E5%90%8D"><span class="nav-number">4.0.3.1.</span> <span class="nav-text">• 列表、清單命名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bull-%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%95%B8%E6%93%9A"><span class="nav-number">4.0.3.2.</span> <span class="nav-text">• 格式化數據</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bull-%E7%95%B6%E5%89%8D%E9%81%B8%E9%A0%85"><span class="nav-number">4.0.3.3.</span> <span class="nav-text">• 當前選項</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B8%BD%E7%B5%90"><span class="nav-number">5.</span> <span class="nav-text">總結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ovis Lai"
+      src="/j51217123/images/avatar.webp">
+  <p class="site-author-name" itemprop="name">Ovis Lai</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/j51217123/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/j51217123/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/j51217123/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/j51217123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;j51217123" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/j51217123/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;j51217123&#x2F;" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:j51217123@gmail.com" title="Mail → mailto:j51217123@gmail.com" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a href='https://j51217123.github.io/j51217123/'>Ovis Lai</a></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/j51217123/lib/anime.min.js"></script>
+  <script src="/j51217123/lib/velocity/velocity.min.js"></script>
+  <script src="/j51217123/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/j51217123/js/utils.js"></script>
+
+<script src="/j51217123/js/motion.js"></script>
+
+
+<script src="/j51217123/js/schemes/pisces.js"></script>
+
+
+<script src="/j51217123/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
